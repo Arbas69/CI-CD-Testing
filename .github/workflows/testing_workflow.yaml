@@ -1,0 +1,18 @@
+name: HTML File syntax and structure Checker
+
+on:
+  push:
+    braches: [main]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Checkout code
+      uses: actions/checkout@v4
+
+      -name: Install HTML validator
+      run: npm install htmllint
+
+      -name: Use Html validator
+      run: htmllint index.html
